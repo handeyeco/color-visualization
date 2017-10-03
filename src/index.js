@@ -4,6 +4,7 @@ const OrbitControls = require('three-orbit-controls')(THREE);
 import { COLOR } from './color';
 
 var scene = new THREE.Scene();
+scene.background = new THREE.Color(0xFFFFFF);
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 var control = new OrbitControls(camera);
 
@@ -38,8 +39,6 @@ camera.position.z = 2.5;
 
 function animate() {
 	requestAnimationFrame( animate );
-  // rgbBox.rotation.x += 0.005;
-  // rgbBox.rotation.y += 0.005;
 	renderer.render( scene, camera );
 }
 animate();
