@@ -1,0 +1,17 @@
+{
+  "name": "color-viz",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Matthew Curtis",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.87.1",
+    "three-orbit-controls": "^82.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
+}
