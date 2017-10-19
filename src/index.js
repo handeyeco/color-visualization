@@ -39,7 +39,7 @@ function init() {
 
   animate();
 
-  colorInput.value = defaultColors;
+  colorInput.value = colorInput.value || defaultColors;
   submitColors();
 }
 
@@ -80,4 +80,5 @@ function animate() {
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
 }
+
 init();
