@@ -1,0 +1,23 @@
+.controls {
+  background: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  border: 1px solid gray;
+  padding: 1em;
+  z-index: 9999;
+}
+
+.controls textarea {
+  background: rgba(255, 255, 255, 0.5);
+  width: 15vw;
+  height: 60vh;
+  min-width: 15em;
+  min-height: 15em;
+}
+
+.controls input[type=range] {
+  display: block;
+  width: 100%;
+  margin: 2em 0 1em;
+}

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    body {
-      margin: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 
 <body>
+  <div class="controls">
+    <h1>Color Cube</h1>
+    <textarea id="color-input" placeholder="Add rgb, hsl, or hex colors here..."></textarea>
+    <br />
+    <button id="submit-colors-button">Sort</button>
+    <button id="populate-colors-button">Populate</button>
+    <button id="clear-colors-button">Clear</button>
+    <br />
+    <input id="background-range" type="range" min="0" max="255" step="1" value="255" />
+  </div>
 </body>
 
 <script src="dist/bundle.js"></script>
