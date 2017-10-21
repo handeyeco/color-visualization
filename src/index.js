@@ -9,11 +9,13 @@ const colorInput = document.getElementById('color-input');
 const submitColorsButton = document.getElementById('submit-colors-button');
 const populateColorsButton = document.getElementById('populate-colors-button');
 const clearColorsButton = document.getElementById('clear-colors-button');
+const toggleGuideButton = document.getElementById('toggle-guide-button');
 const backgroundRange = document.getElementById('background-range');
 
 submitColorsButton.addEventListener('click', submitColors);
 populateColorsButton.addEventListener('click', () => { colorInput.value = defaultColors; });
 clearColorsButton.addEventListener('click', () => { colorInput.value = ''; });
+toggleGuideButton.addEventListener('click', toggleGuide);
 backgroundRange.addEventListener('input', () => { backgroundColor = backgroundRange.value; });
 
 let backgroundColor = backgroundRange.value,
@@ -21,8 +23,21 @@ let backgroundColor = backgroundRange.value,
     camera,
     controls,
     renderer,
+    showGuide,
+    guide,
     box;
 
+function toggleGuide() {
+  if (!showGuide) {
+    showGuide = true;
+    guide = new THREE.AxisHelper( 2 );
+    scene.add( guide );
+    guide.position.set(-1, -1, -1);
+  } else {
+    showGuide = false;
+    scene.remove( guide );
+  }
+}
 
 function init() {
   scene = new THREE.Scene();
@@ -31,7 +46,7 @@ function init() {
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
   camera.position.z = 2.5;
 
-  renderer = new THREE.WebGLRenderer();
+  renderer = new THREE.WebGLRenderer({ antialiasing: true });
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild( renderer.domElement );
 
