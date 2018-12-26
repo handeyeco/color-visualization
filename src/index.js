@@ -11,14 +11,17 @@ const populateColorsButton = document.getElementById('populate-colors-button');
 const clearColorsButton = document.getElementById('clear-colors-button');
 const toggleGuideButton = document.getElementById('toggle-guide-button');
 const backgroundRange = document.getElementById('background-range');
+const pixelSizeRange = document.getElementById('pixel-size-range');
 
 submitColorsButton.addEventListener('click', submitColors);
 populateColorsButton.addEventListener('click', () => { colorInput.value = defaultColors; });
 clearColorsButton.addEventListener('click', () => { colorInput.value = ''; });
 toggleGuideButton.addEventListener('click', toggleGuide);
 backgroundRange.addEventListener('input', () => { backgroundColor = backgroundRange.value; });
+pixelSizeRange.addEventListener('input', () => { pixelSize = pixelSizeRange.value; });
 
 let backgroundColor = backgroundRange.value,
+    pixelSize = pixelSizeRange.value,
     scene,
     camera,
     controls,
@@ -79,7 +82,7 @@ function updateBox(colors) {
   });
 
   let material = new THREE.PointsMaterial({
-    size: 0.04,
+    size: pixelSize / 100,
     vertexColors: THREE.VertexColors
   });
 
